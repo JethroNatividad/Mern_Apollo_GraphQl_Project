@@ -25,5 +25,6 @@ module.exports = gql`
   }
   type Mutation {
     register(registerInput: registerInput): User!
+    login(email: String!, password: String!): User!
   }
 `;
