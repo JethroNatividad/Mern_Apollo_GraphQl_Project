@@ -1,17 +1,17 @@
-.register {
+.login {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
-.register__form {
+.login__form {
   width: 500px !important;
   margin-top: 2rem;
 }
-.register__title {
+.login__title {
   text-align: center;
 }
 @media only screen and (max-width: 600px) {
-  .register__form {
+  .login__form {
     width: 100% !important;
   }
 }

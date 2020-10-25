@@ -3,31 +3,30 @@ import { Button, Form } from 'semantic-ui-react';
 import gql from 'graphql-tag';
 import { useMutation } from '@apollo/client';
 import './index.css';
+import { useForm } from '../../util/hooks';
+import { useAuthContext } from '../../Context/AuthContext';
 function Register(props) {
-  const [values, setValues] = useState({
+  const { addUser } = useAuthContext();
+  const { values, handleSubmit, handleChange } = useForm(registerUser, {
     username: '',
     email: '',
     password: '',
     confirmPassword: '',
   });
-  const [errors, setErrors] = useState({});
-  const [registerUser, { loading }] = useMutation(registerMutation, {
+  const [_registerUser, { loading }] = useMutation(registerMutation, {
     variables: values,
     update(_, res) {
-      console.log(res);
+      addUser(res.data.register);
       props.history.push('/');
     },
     onError(err) {
       setErrors(err.graphQLErrors[0].extensions.errors);
     },
   });
-  const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    registerUser();
-  };
+  function registerUser() {
+    _registerUser();
+  }
+  const [errors, setErrors] = useState({});
   const DisplayErrors = () =>
     Object.values(errors).map((e) => <li key={e}>{e}</li>);
   return (
