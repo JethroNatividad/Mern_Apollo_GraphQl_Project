@@ -1,0 +1,8 @@
+.home__posts {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+.home__title {
+  text-align: center;
+}

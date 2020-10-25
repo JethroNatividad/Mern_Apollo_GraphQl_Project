@@ -1,0 +1,17 @@
+.register {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.register__form {
+  width: 600px !important;
+  margin-top: 2rem;
+}
+.register__title {
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .register__form {
+    width: 100% !important;
+  }
+}
