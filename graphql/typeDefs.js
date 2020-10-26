@@ -1,4 +1,6 @@
 const { gql } = require('apollo-server');
+//typedefinitions
+
 module.exports = gql`
   type Post {
     username: String!

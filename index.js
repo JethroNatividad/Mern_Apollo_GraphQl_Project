@@ -4,12 +4,12 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 const resolvers = require('./graphql/resolvers');
 const typeDefs = require('./graphql/typeDefs');
-
+//pubsub is for subscription
 const pubsub = new PubSub();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({ req }) => ({ req, pubsub }),
+  context: ({ req }) => ({ req, pubsub }), //get access of req, and pubsub in the context
 });
 
 mongoose

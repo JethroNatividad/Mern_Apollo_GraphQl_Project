@@ -2,6 +2,7 @@
 const posts = require('./posts');
 const users = require('./users');
 const comments = require('./comments');
+// exports everyting
 module.exports = {
   Post: {
     commentsCount: (parent) => parent.comments.length,
